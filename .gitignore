@@ -1,4 +1,4 @@
 build
 bin/Game
-bin/*.exe
+*.exe
 .vscode
