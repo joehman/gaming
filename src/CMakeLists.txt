@@ -9,3 +9,4 @@ target_link_libraries(Game PRIVATE imgui)
 target_link_libraries(Game PRIVATE entt)
 
 target_include_directories(Game PRIVATE dependencies)
+target_include_directories(Game PRIVATE .)

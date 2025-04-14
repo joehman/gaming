@@ -2,9 +2,11 @@
 
 class Window {
 public:
+    //use window::create instead.
     Window() {}
-    Window(int width, int height, bool fullscreen, char* name);
-    void create(int width, int height, bool fullscreen, char* name);
+
+    Window(int width, int height, bool fullscreen, const char* name);
+    void create(int width, int height, bool fullscreen, const char* name);
     
     ~Window();
     
