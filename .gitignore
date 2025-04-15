@@ -2,3 +2,9 @@ build
 bin/Game
 *.exe
 .vscode
+.cache
+*.o
+cmake_install.cmake
+CMakeFiles
+Makefile
+*.sln

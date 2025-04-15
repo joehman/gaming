@@ -1,48 +1,28 @@
-#include <ecs/Scene.hpp>
-#include <ecs/Entity.hpp>
 
-class Overworld : public Scene {
+#include "GLFW/glfw3.h"
 
-    
-
-public:
-    Overworld()
-    {
-        Scene();
-    }
-
-
-    void update()
-    {
-
-    }
-};
-
-#include <iostream>
 #include "gfx/Window.hpp"
 
-struct testComponent {
-    int number;
-
-    testComponent() = default;
-    testComponent(const testComponent&) = default;
-};
-
+#include <world/overworld.hpp>
 
 int main()
 {
-    bool shouldClose;
-    //Window window(1920, 1080, false, std::string("Hello, World!").c_str()); // TODO : load these settings from a file 
-    // TODO : fix entity wrapper
+    glfwInit();
     
-    /*
-    Overworld overworld;
+    OverWorld world;
+
+    bool shouldClose = false;
+   
+    Window window(1920,1080, false, "Game");
+
+    world.start();
     while (!shouldClose)
     {
-        overworld.update();
-
-
+        window.updateWindow(); 
+        window.clearWindow();
+        
+        world.update(); 
+        
+            
     }
-
-    */
 }

@@ -1,7 +1,6 @@
 
 file(GLOB_RECURSE SRCS "*.cpp" "*.c")
 
-
 add_executable(Game ${SRCS})
 
 target_link_libraries(Game PRIVATE glfw)

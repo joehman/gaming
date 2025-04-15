@@ -1,0 +1,10 @@
+# If you're not using clangd, this can be ignored.
+# Not included in .gitignore because I use clangd.
+-std=c++20
+-Isrc/
+-Ilibraries/entt
+-Ilibraries/glfw/include
+-Ilibraries/glm
+-Ilibraries/imgui/DearImGui
+-Ilibraries/imgui/DearImGui/backends
+

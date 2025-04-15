@@ -1,2 +1,1 @@
-#include <ecs/Scene.hpp>
 
