@@ -5,12 +5,37 @@
 #include <world/overworld.hpp>
 #include <gfx/Window.hpp>
 
+struct testComponent {
+public:
+    int x = 0;
+    int b = 0;
+    testComponent(int x, int b)
+    {
+        this->x = x;
+        this->b = b;
+    }
+    testComponent(const testComponent &comp)
+    {
+        b = comp.b;
+        x = comp.x;
+    }
+
+
+    void print()
+    {
+        std::cout << b << " " << x << '\n';;
+    }
+    
+};
+
 class Game {
 
 public:
     Window window;
-    OverWorld world;
-    
+
+    Scene testScene;
+    Entity testEnt;
+
     Game() {}
     void init(int width, int height, bool fullscreen, int GLversionMajor, int GLversionMinor)
     {
@@ -31,9 +56,14 @@ public:
     }
     void start()
     {
-
+        testEnt = testScene.createEntity();
+        testEnt.AddComponent<testComponent>(10,5);
+        
+        if (testEnt.HasComponent<testComponent>())
+        { 
+            testEnt.GetComponent<testComponent>().print();
+        }
     }
-
     void onUpdate()
     {
              
