@@ -1,28 +1,21 @@
-
-#include "GLFW/glfw3.h"
-
-#include "gfx/Window.hpp"
-
 #include <world/overworld.hpp>
+#include <game.hpp>
+
+class Game game;
 
 int main()
 {
-    glfwInit();
     
-    OverWorld world;
+    game.init(1920,1080,false,3,3);
 
-    bool shouldClose = false;
-   
-    Window window(1920,1080, false, "Game");
-
-    world.start();
-    while (!shouldClose)
+    game.start();
+    while (!game.shouldClose)
     {
-        window.updateWindow(); 
-        window.clearWindow();
+        game.window.updateWindow(); 
+
+        game.onUpdate(); 
         
-        world.update(); 
-        
-            
+
+        game.window.clearWindow();
     }
 }

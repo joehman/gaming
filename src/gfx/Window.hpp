@@ -1,3 +1,4 @@
+#pragma once
 #include <GLFW/glfw3.h>
 
 class Window {
@@ -13,19 +14,17 @@ public:
     void create(int width, int height, bool fullscreen, const char* name);
     
     ~Window();
-   
-    void setWindowAttrib(int attrib, int value) 
-    {
-        glfwSetWindowAttrib(this->window, attrib, value);
-    }
-    bool shouldClose() 
-    {
-        return glfwWindowShouldClose(this->window);
-    }
+  
+    GLFWwindow* getWindow() {return window;}
+    void setWindowAttrib(int attrib, int value);
+    void setWindowHint(int hint, int value);
+
+    bool shouldClose();
     
     int getWidth() { return width;}
     int getHeight() { return height; }
-    
+   
+    void setClearColor(float r, float g, float b, float a);
     void clearWindow();
     void updateWindow();
 private:

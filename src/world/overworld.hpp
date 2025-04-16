@@ -1,3 +1,4 @@
+#pragma once
 #include "ecs/Scene.hpp"
 #include <ecs/Entity.hpp>
 #include <ecs/Entity.hpp>
