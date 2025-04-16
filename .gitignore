@@ -1,5 +1,6 @@
 build
 bin/Game
+*.pdb
 *.exe
 .vscode
 .cache

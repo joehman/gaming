@@ -24,3 +24,4 @@ ENDIF()
 
 target_include_directories(imgui PUBLIC DearImGui/)
 target_include_directories(imgui PUBLIC DearImGui/backends)
+target_include_directories(imgui PUBLIC ../glfw/include)
