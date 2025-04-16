@@ -12,6 +12,15 @@ public:
     // the scene will have different functions which allow
     // you to add/remove and also get entities. Should also
     // have some kind of ID system so  
+    template <typename Type> 
+    auto getEntitiesWithComponent()
+    {
+       return Registry.view<Type>();
+    }
+
+    // returns all entities in the registry
+    auto getEntities();
+
 
     bool entityExists(Entity ent);
     void destroyEntity(Entity ent);
