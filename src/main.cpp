@@ -1,4 +1,3 @@
-#include <world/overworld.hpp>
 #include <game.hpp>
 
 class Game game;

@@ -2,39 +2,15 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <world/overworld.hpp>
 #include <gfx/Window.hpp>
+#include <systems/imguiSystem.hpp>
 
-struct testComponent {
-public:
-    int x = 0;
-    int b = 0;
-    testComponent(int x, int b)
-    {
-        this->x = x;
-        this->b = b;
-    }
-    testComponent(const testComponent &comp)
-    {
-        b = comp.b;
-        x = comp.x;
-    }
-
-
-    void print()
-    {
-        std::cout << b << " " << x << '\n';;
-    }
-    
-};
-
+#include <iostream>
 class Game {
 
 public:
     Window window;
 
-    Scene testScene;
-    Entity testEnt;
 
     Game() {}
     void init(int width, int height, bool fullscreen, int GLversionMajor, int GLversionMinor)
@@ -53,16 +29,17 @@ public:
         glEnable(GL_DEPTH_TEST);
 
         window.setClearColor(0.1f, 0.2f, 0.4f, 1.0f);
+        
+        char* out = (char*)malloc(sizeof(char)*20);
+        sprintf(out, "#version %d", GLversionMajor*100 + GLversionMinor*10);
+        std::cout << *out;
+
+        //Systems::imgui_init(out);
+        glViewport(0,0,width, height);
     }
     void start()
     {
-        testEnt = testScene.createEntity();
-        testEnt.AddComponent<testComponent>(10,5);
         
-        if (testEnt.HasComponent<testComponent>())
-        { 
-            testEnt.GetComponent<testComponent>().print();
-        }
     }
     void onUpdate()
     {
