@@ -1,5 +1,5 @@
 #pragma once
-#include <ecs/Scene.hpp>
+#include <backend/ecs/Scene.hpp>
 #include <iostream>
 #include <string>
 class Entity
@@ -53,7 +53,7 @@ public:
         return _pScene->Registry.all_of<Type>(this->_Entity);
     }
     template<typename Type>
-    auto GetComponent()
+    auto& GetComponent()
     {
         if (!this->HasComponent<Type>())
         {

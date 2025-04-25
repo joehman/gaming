@@ -16,5 +16,5 @@ else()
     message("OPENGL WAS NOT FOUND ON THE SYSTEM! FATAL!")
 endif()
 
-target_include_directories(Game PRIVATE dependencies)
+target_include_directories(Game PRIVATE backend/dependencies)
 target_include_directories(Game PRIVATE .)

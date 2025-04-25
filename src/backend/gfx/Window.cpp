@@ -1,6 +1,5 @@
 #include "GLFW/glfw3.h"
-#include <GL/gl.h>
-#include <gfx/Window.hpp>
+#include <backend/gfx/Window.hpp>
 
 Window::~Window()
 {

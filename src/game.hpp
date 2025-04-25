@@ -1,16 +1,21 @@
 #pragma once
+#include <iostream>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <gfx/Window.hpp>
+
+#include <backend/gfx/Window.hpp>
 #include <systems/imguiSystem.hpp>
 
-#include <iostream>
+#include <backend/ecs/Entity.hpp>
+
+
+
+
 class Game {
 
 public:
     Window window;
-
 
     Game() {}
     void init(int width, int height, bool fullscreen, int GLversionMajor, int GLversionMinor)
@@ -32,14 +37,12 @@ public:
         
         char* out = (char*)malloc(sizeof(char)*20);
         sprintf(out, "#version %d", GLversionMajor*100 + GLversionMinor*10);
-        std::cout << *out;
 
-        //Systems::imgui_init(out);
         glViewport(0,0,width, height);
     }
     void start()
     {
-        
+
     }
     void onUpdate()
     {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <ecs/Scene.hpp>
+#include <backend/ecs/Scene.hpp>
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
@@ -8,6 +8,6 @@
 
 namespace Systems
 {
-    void imgui_init(char* shaderversion);
-    void imgui_update();
+    void imgui_init(const char* shaderversion);
+    void imgui_update(Scene* pScene);
 }

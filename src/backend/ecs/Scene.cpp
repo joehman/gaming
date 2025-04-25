@@ -1,5 +1,5 @@
-#include <ecs/Scene.hpp>
-#include <ecs/Entity.hpp>
+#include <backend/ecs/Scene.hpp>
+#include <backend/ecs/Entity.hpp>
 
 bool Scene::entityExists(Entity ent)
 {
