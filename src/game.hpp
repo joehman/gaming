@@ -38,7 +38,7 @@ public:
         char* out = (char*)malloc(sizeof(char)*20);
         sprintf(out, "#version %d", GLversionMajor*100 + GLversionMinor*10);
 
-        glViewport(0,0,width, height);
+        glViewport(0,0, width, height);
     }
     void start()
     {

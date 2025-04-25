@@ -45,7 +45,7 @@ public:
                 << this->getStringID() << "\n";
             return;
         }
-        _pScene->Registry.emplace<Type>(this->_Entity, args...);    
+        _pScene->Registry.emplace<Type>(this->_Entity, this, args...);    
     }
     template<typename Type>
     bool HasComponent()
@@ -63,18 +63,9 @@ public:
         return _pScene->Registry.get<Type>(this->_Entity);
     }
 
-    entt::entity getEntityID()
-    {
-        return _Entity;
-    }
-    void setEntityID(entt::entity ID)
-    {
-        _Entity = ID;
-    }
-    void setScene(Scene* scene)
-    {
-        this->_pScene = scene;
-    }
+    entt::entity getEntityID();
+    void setEntityID(entt::entity ID);
+    void setScene(Scene* scene);
 private:
 
     std::string getStringID();

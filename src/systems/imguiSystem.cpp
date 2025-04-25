@@ -4,7 +4,7 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-#include <components/imgui/imgui_base.hpp>
+#include <components/imgui/imgui_component.hpp>
 
 #include <game.hpp>
 
@@ -34,15 +34,23 @@ void Systems::imgui_update(Scene *pScene)
     ImGui::NewFrame();
 
     //get all entities with the imgui_Base component
-    auto entities = pScene->getEntitiesWithComponent<Components::imgui_base>();
+    auto entities = pScene->getEntitiesWithComponent<imgui_base>();
+
     for (auto entity : entities) // loop through them
     {
+        auto comp = entities.get<imgui_base>(entity);
 
-        auto comp = entities.get<Components::imgui_base>(entity);
+
+        // call imgui_base::update, if it's assigned.
+        if (comp.update_callback)
+        {
+            comp.update_callback();
+        }
+        else
+        {
+            std::cout << "ERROR: imgui_base Component in Entity: " << std::to_string((int)entity) << " does not have update_callback function assigned!\n";
+        }
         
-        // call imgui_base::update.
-        comp.update_callback();
-
     }
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

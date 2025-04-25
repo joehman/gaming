@@ -16,7 +16,19 @@ void Entity::Destroy()
 {
     this->_pScene->destroyEntity(*this);
 }
+void Entity::setEntityID(entt::entity ID)
+{
+    _Entity = ID;
+}
+void Entity::setScene(Scene* scene)
+{
+    this->_pScene = scene;
+}
 
+entt::entity Entity::getEntityID()
+{
+    return _Entity;
+}
 
 //private
 std::string Entity::getStringID()

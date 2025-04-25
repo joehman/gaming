@@ -16,7 +16,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 if(WINDOWS)
 	message("Manually configure compiler flags when using MSVC")
 elseif(LINUX)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Wpedantic")	
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Wpedantic -g")	
 endif()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
